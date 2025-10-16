@@ -1,0 +1,42 @@
+[2025-10-16 22:17:39] local.INFO: Scraped 7 cars from autotrader  
+[2025-10-16 22:17:39] local.INFO: Scraped 6 cars from cars.com  
+[2025-10-16 22:17:39] local.INFO: Scraped 6 cars from cargurus  
+[2025-10-16 22:17:39] local.INFO: Scraped 7 cars from carmax  
+[2025-10-16 22:18:27] local.ERROR: Class "App\Http\Controllers\Controller" not found {"exception":"[object] (Error(code: 0): Class \"App\\Http\\Controllers\\Controller\" not found at /home/runner/work/laravel-car-browser/laravel-car-browser/app/Http/Controllers/CarController.php:8)
+[stacktrace]
+#0 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/composer/ClassLoader.php(576): include()
+#1 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#2 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#3 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1117): is_a()
+#4 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1054): Illuminate\\Routing\\Route->controllerMiddleware()
+#5 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Router.php(820): Illuminate\\Routing\\Route->gatherMiddleware()
+#6 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Router.php(802): Illuminate\\Routing\\Router->gatherRouteMiddleware()
+#7 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#8 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#9 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#10 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#11 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#12 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#14 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#15 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#17 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#18 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#20 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#22 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#24 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#26 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#28 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#30 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#31 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#32 /home/runner/work/laravel-car-browser/laravel-car-browser/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#33 /home/runner/work/laravel-car-browser/laravel-car-browser/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('...')
+#34 {main}
+"} 
