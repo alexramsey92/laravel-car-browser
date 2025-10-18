@@ -25,6 +25,37 @@ A Laravel application to scrape, aggregate, and list all available cars for sale
 
 ## Installation
 
+### Quick Setup (Recommended)
+
+1. Clone the repository:
+```bash
+git clone https://github.com/alexramsey92/laravel-car-browser.git
+cd laravel-car-browser
+```
+
+2. Install dependencies:
+```bash
+composer install
+```
+
+3. Run the automated setup script:
+```bash
+./setup.sh
+```
+
+The setup script will automatically:
+- Create all necessary storage directories
+- Set up the `.env` file (if it doesn't exist)
+- Generate application key
+- Set proper permissions
+- Clear caches
+- Create SQLite database and run migrations
+- Seed the database with admin user
+
+### Manual Installation
+
+If you prefer to set up manually or the script doesn't work:
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/alexramsey92/laravel-car-browser.git
@@ -46,24 +77,45 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-5. Create database file (SQLite):
+5. Create necessary storage directories:
+```bash
+mkdir -p storage/framework/views
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/cache/data
+mkdir -p storage/app/public
+mkdir -p storage/logs
+```
+
+6. Set proper permissions:
+```bash
+chmod -R 755 storage bootstrap/cache
+```
+
+7. Clear caches:
+```bash
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan config:cache
+```
+
+8. Create database file (SQLite):
 ```bash
 touch database/database.sqlite
 ```
 
-6. Run migrations:
+9. Run migrations:
 ```bash
 php artisan migrate
 ```
 
-7. Seed the database with admin user:
+10. Seed the database with admin user:
 ```bash
 php artisan db:seed
 ```
 
-This will create an admin user with the following credentials:
-- Email: `admin@example.com`
-- Password: `password`
+This will create an admin user. For security, the seeder now generates a random admin password and prints it during seeding.
+Run `php artisan db:seed` and note the admin credentials shown in the console, or create your own admin account via registration or `php artisan tinker`.
 
 ## Usage
 
@@ -172,6 +224,63 @@ The current scraper implementation uses sample data for demonstration purposes. 
 4. Consider using a queuing system for large-scale scraping
 5. Add caching mechanisms to reduce redundant scraping
 6. Implement change detection to only update modified listings
+
+## Troubleshooting
+
+### Common Issues
+
+#### "Please provide a valid cache path" Error
+This error occurs when Laravel can't find the necessary storage directories. To fix:
+
+1. Ensure all storage directories exist:
+```bash
+mkdir -p storage/framework/views
+mkdir -p storage/framework/sessions  
+mkdir -p storage/framework/cache/data
+mkdir -p storage/app/public
+```
+
+2. Set proper permissions:
+```bash
+chmod -R 755 storage bootstrap/cache
+```
+
+3. Clear caches:
+```bash
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan config:cache
+```
+
+#### Permission Denied Errors
+If you encounter permission issues:
+```bash
+chmod -R 755 storage
+chmod -R 755 bootstrap/cache
+```
+
+#### Database Connection Issues
+- For SQLite: Ensure `database/database.sqlite` exists
+- For MySQL/PostgreSQL: Check your `.env` database configuration
+
+#### Application Key Missing
+If you see "No application encryption key has been specified":
+```bash
+php artisan key:generate
+```
+
+### Reset Application
+To completely reset the application:
+```bash
+rm -rf storage/framework/cache/*
+rm -rf storage/framework/sessions/*
+rm -rf storage/framework/views/*
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan config:cache
+```
 
 ## License
 

@@ -13,16 +13,24 @@
     .car-detail-image {
         width: 100%;
         height: 400px;
-        background: #e0e0e0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #999;
+        color: #fff;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
     }
     .car-detail-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .car-detail-image.no-image {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-size: 1.1rem;
     }
     .car-detail-content {
         padding: 2rem;
@@ -81,11 +89,11 @@
 <a href="{{ route('cars.index') }}" class="btn btn-secondary" style="margin-bottom: 1rem;">← Back to Listings</a>
 
 <div class="car-detail">
-    <div class="car-detail-image">
+    <div class="car-detail-image @if(!$car->image_url)no-image @endif">
         @if($car->image_url)
-            <img src="{{ $car->image_url }}" alt="{{ $car->make }} {{ $car->model }}">
+            <img src="{{ $car->image_url }}" alt="{{ $car->make }} {{ $car->model }}" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.textContent='No Image Available';">
         @else
-            <span>No Image Available</span>
+            <span>📷 No Image Available</span>
         @endif
     </div>
     <div class="car-detail-content">

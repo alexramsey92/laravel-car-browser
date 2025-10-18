@@ -53,16 +53,24 @@
         width: 100%;
         height: 200px;
         object-fit: cover;
-        background: #e0e0e0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #999;
+        color: #fff;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
     }
     .car-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .car-image.no-image {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-size: 0.9rem;
     }
     .car-details {
         padding: 1.5rem;
@@ -168,11 +176,11 @@
     <div class="car-grid">
         @foreach($cars as $car)
             <div class="car-card">
-                <div class="car-image">
+                <div class="car-image @if(!$car->image_url)no-image @endif">
                     @if($car->image_url)
-                        <img src="{{ $car->image_url }}" alt="{{ $car->make }} {{ $car->model }}">
+                        <img src="{{ $car->image_url }}" alt="{{ $car->make }} {{ $car->model }}" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.parentElement.textContent='No Image Available';">
                     @else
-                        <span>No Image</span>
+                        <span>📷 No Image Available</span>
                     @endif
                 </div>
                 <div class="car-details">

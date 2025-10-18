@@ -1,0 +1,22 @@
+
+  [41;1m InvalidArgumentException [49;22m
+
+[39;1m  Unexpected end of input[39;22m
+
+  at [32mvendor\psy\psysh\src\Shell.php[39m:[32m891[39m
+    887▕ 
+    888▕         if (!$this->hasValidCode()) {
+    889▕             $this->popCodeStack();
+    890▕ 
+  ➜ 891▕             throw new \InvalidArgumentException('Unexpected end of input');
+    892▕         }
+    893▕     }
+    894▕ 
+    895▕     /**
+
+  [33m1   [39m[39;1mvendor\psy\psysh\src\Shell.php[39;22m:[39;1m1394[39;22m
+  [90m    Psy\Shell::setCode("echo 'Cars in database: ' . \App\Models\Car::count(); \App\Models\Car::limit(3)->get()->each(fn($c) => echo "\n{/c/Users/alexr/bash_completion.d/*.bash- {/c/Users/alexr/bash_completion.d/*.bash- {/c/Users/alexr/bash_completion.d/*.bash- - ${/c/Users/alexr/bash_completion.d/*.bash- - {/c/Users/alexr/bash_completion.d/*.bash- miles");")[39m
+
+  [33m2   [39m[39;1mvendor\laravel\tinker\src\Console\TinkerCommand.php[39;22m:[39;1m76[39;22m
+  [90m    Psy\Shell::execute("echo 'Cars in database: ' . \App\Models\Car::count(); \App\Models\Car::limit(3)->get()->each(fn($c) => echo "\n{/c/Users/alexr/bash_completion.d/*.bash- {/c/Users/alexr/bash_completion.d/*.bash- {/c/Users/alexr/bash_completion.d/*.bash- - ${/c/Users/alexr/bash_completion.d/*.bash- - {/c/Users/alexr/bash_completion.d/*.bash- miles");")[39m
+
